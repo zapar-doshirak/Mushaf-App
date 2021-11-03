@@ -1,0 +1,28 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/mainBlack</item>
+        <item name="colorPrimaryDark">@color/mainBlack</item>
+        <item name="colorAccent">@color/accentBlue</item>
+
+    </style>
+
+    <style name="Widget.AppTheme.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
+
+    <style name="headCollapsed" parent="">
+        <item name="android:fontFamily">@font/roboto_light</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/mainBlack</item>
+    </style>
+
+    <style name="headExpanded" parent="">
+        <item name="android:fontFamily">@font/roboto_light</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/mainBlack</item>
+    </style>
+
+</resources>

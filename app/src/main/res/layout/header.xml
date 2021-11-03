@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/surahInfoBlock1"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/backgroundLight"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <ImageView
+            android:id="@+id/buttonBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="34dp"
+            android:animateLayoutChanges="true"/>
+
+        <ImageView
+            android:id="@+id/buttonMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_more_3dots"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="34dp"
+            android:animateLayoutChanges="true"/>
+
+        <TextView
+            android:id="@+id/surahsNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="36sp"
+            android:fontFamily="@font/roboto_light"
+            android:textColor="@color/mainBlack"
+            android:letterSpacing="0.05"
+            android:layout_marginTop="50dp"/>
+
+        <TextView
+            android:id="@+id/surahsName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="An-Nisa"
+            app:layout_constraintTop_toBottomOf="@id/surahsNumber"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="28sp"
+            android:fontFamily="@font/roboto_light"
+            android:textColor="@color/mainBlack"
+            android:letterSpacing="0.05"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/surahsNameTranslationWithVersesCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="The Women, 176 verses"
+            app:layout_constraintTop_toBottomOf="@id/surahsName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="18sp"
+            android:fontFamily="@font/roboto_light"
+            android:textColor="@color/lightGreyNotActive"
+            android:letterSpacing="0.05"
+            android:layout_marginTop="5dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_basmala"
+            app:layout_constraintTop_toBottomOf="@id/surahsNameTranslationWithVersesCount"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="25dp"
+            android:paddingBottom="28dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
+

@@ -1,0 +1,11 @@
+<resources>
+
+    <style name="ThemeOverlay.MainScreen.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
+        <item name="fullscreenTextColor">@color/light_blue_A200</item>
+    </style>
+
+    <style name="goneView" parent="">
+        <item name="android:visibility">gone</item>
+    </style>
+</resources>
