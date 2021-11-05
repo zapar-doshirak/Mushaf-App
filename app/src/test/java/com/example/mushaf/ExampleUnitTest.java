@@ -1,4 +1,4 @@
-package com.example.mainscreen;
+package com.example.mushaf;
 
 import org.junit.Test;
 

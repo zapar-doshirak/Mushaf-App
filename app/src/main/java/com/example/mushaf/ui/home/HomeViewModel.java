@@ -1,4 +1,4 @@
-package com.example.mainscreen.ui.home;
+package com.example.mushaf.ui.home;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

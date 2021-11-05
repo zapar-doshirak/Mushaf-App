@@ -1,4 +1,4 @@
-package com.example.mainscreen.ui.surah;
+package com.example.mushaf.ui.surah;
 
 import android.os.Bundle;
 
@@ -13,7 +13,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.mainscreen.R;
+import com.example.mushaf.R;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

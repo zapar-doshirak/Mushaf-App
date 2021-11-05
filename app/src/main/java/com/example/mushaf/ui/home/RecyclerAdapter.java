@@ -1,4 +1,4 @@
-package com.example.mainscreen.ui.home;
+package com.example.mushaf.ui.home;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,8 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mainscreen.R;
-import com.example.mainscreen.models.Sures;
+import com.example.mushaf.R;
+import com.example.mushaf.models.Sures;
 
 import java.util.List;
 

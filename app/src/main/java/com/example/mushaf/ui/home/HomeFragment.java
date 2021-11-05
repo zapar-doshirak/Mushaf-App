@@ -1,5 +1,5 @@
 
-package com.example.mainscreen.ui.home;
+package com.example.mushaf.ui.home;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -16,9 +16,9 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mainscreen.R;
-import com.example.mainscreen.models.Sures;
-import com.example.mainscreen.ui.surah.SurahFragment;
+import com.example.mushaf.R;
+import com.example.mushaf.models.Sures;
+import com.example.mushaf.ui.surah.SurahFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;

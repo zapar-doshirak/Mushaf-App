@@ -1,12 +1,13 @@
-package com.example.mainscreen.models;
+package com.example.mushaf.models;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Fts4;
 import androidx.room.PrimaryKey;
-
+@Entity
 public class Sures {
 
+    @PrimaryKey
     private int number;
     private String name;
     private String nameTranslate;

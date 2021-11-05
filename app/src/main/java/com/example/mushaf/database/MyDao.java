@@ -1,4 +1,4 @@
-package com.example.mainscreen.database;
+package com.example.mushaf.database;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -8,7 +8,7 @@ import androidx.room.Query;
 
 import java.util.List;
 
-import com.example.mainscreen.models.Sures;
+import com.example.mushaf.models.Sures;
 
 @Dao
 public interface MyDao {

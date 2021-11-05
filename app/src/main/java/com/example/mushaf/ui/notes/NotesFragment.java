@@ -1,4 +1,4 @@
-package com.example.mainscreen.ui.notes;
+package com.example.mushaf.ui.notes;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.mainscreen.R;
+import com.example.mushaf.R;
 
 public class NotesFragment extends Fragment {
 
