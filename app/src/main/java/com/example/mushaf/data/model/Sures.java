@@ -1,5 +1,8 @@
 package com.example.mushaf.data.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -9,7 +12,7 @@ import androidx.room.PrimaryKey;
 import com.squareup.moshi.Json;
 
 @Entity(tableName = "sures_meta")
-public class Sures {
+public class Sures implements Parcelable {
 
     @PrimaryKey
     @ColumnInfo(name = "_id")
@@ -42,6 +45,29 @@ public class Sures {
         this.place = place;
         this.ayahsCount = ayahsCount;
     }
+
+    //parcelable implementation
+    protected Sures(Parcel in) {
+        number = in.readInt();
+        arabicName = in.readString();
+        name = in.readString();
+        nameTranslate = in.readString();
+        place = in.readString();
+        ayahsCount = in.readInt();
+    }
+
+    // parcelable implementation
+    public static final Creator<Sures> CREATOR = new Creator<Sures>() {
+        @Override
+        public Sures createFromParcel(Parcel in) {
+            return new Sures(in);
+        }
+
+        @Override
+        public Sures[] newArray(int size) {
+            return new Sures[size];
+        }
+    };
 
     public int getNumber() {
         return number;
@@ -101,5 +127,20 @@ public class Sures {
                 ", place='" + place + '\'' +
                 ", ayahsCount=" + ayahsCount +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(number);
+        parcel.writeString(arabicName);
+        parcel.writeString(name);
+        parcel.writeString(nameTranslate);
+        parcel.writeString(place);
+        parcel.writeInt(ayahsCount);
     }
 }

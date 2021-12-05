@@ -78,9 +78,9 @@ public class HomeFragment extends Fragment implements SuresAdapter.RecyclerViewO
 
 
     @Override
-    public void onItemClick(Sures sures) {
+    public void onItemClick(Sures surah) {
 
-        Fragment fragment = SurahFragment.newInstance(sures.getNumber());
+        Fragment fragment = SurahFragment.newInstance(surah);
         FragmentTransaction fragmentTransaction = requireActivity().getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.nav_host_fragment,fragment);
         fragmentTransaction.addToBackStack(null);

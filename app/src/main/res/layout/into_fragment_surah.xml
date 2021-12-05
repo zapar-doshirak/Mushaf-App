@@ -151,7 +151,7 @@
                         android:layout_marginTop="5dp"/>
 
                     <TextView
-                        android:id="@+id/surahsNameTranslationWithVersesCount"
+                        android:id="@+id/surahsNameTranslationWithAyahsCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="The Women, 176 verses"
@@ -169,7 +169,7 @@
                         android:src="@drawable/ic_basmala"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/surahsNameTranslationWithVersesCount"
+                        app:layout_constraintTop_toBottomOf="@id/surahsNameTranslationWithAyahsCount"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         android:layout_marginTop="25dp"

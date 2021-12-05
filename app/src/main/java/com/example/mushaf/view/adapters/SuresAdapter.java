@@ -63,17 +63,17 @@ public class SuresAdapter extends RecyclerView.Adapter<SuresAdapter.SuresHolder>
     public void onBindViewHolder(@NonNull SuresHolder holder, int position) {
 
         int viewType = getItemViewType(position);
-        Sures sures = suresList.get(position);
+        Sures surah = suresList.get(position);
 
 
         switch (viewType){
             case TYPE:
             default:
 
-                holder.number.setText(""+sures.getNumber());
-                holder.name.setText(sures.getName());
-                holder.place.setText(sures.getPlace());
-                holder.ayahsCount.setText(""+sures.getAyahsCount());
+                holder.number.setText(""+surah.getNumber());
+                holder.name.setText(surah.getName());
+                holder.place.setText(surah.getPlace());
+                holder.ayahsCount.setText(""+surah.getAyahsCount());
 
         }
 
@@ -81,7 +81,7 @@ public class SuresAdapter extends RecyclerView.Adapter<SuresAdapter.SuresHolder>
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clickListener.onItemClick(sures);
+                clickListener.onItemClick(surah);
             }
         });
 
@@ -101,6 +101,6 @@ public class SuresAdapter extends RecyclerView.Adapter<SuresAdapter.SuresHolder>
 
     //интерфейс для onItemClickListener
     public interface RecyclerViewOnClickListener {
-        void onItemClick(Sures sures);
+        void onItemClick(Sures surah);
         }
     }

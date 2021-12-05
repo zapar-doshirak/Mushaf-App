@@ -2,8 +2,6 @@ package com.example.mushaf.view.ui;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
@@ -47,14 +45,15 @@ public class SurahFragment extends Fragment {
     private ImageView buttonBack;
     private ImageView buttonMore;
     private ConstraintLayout surahInfoBlock;
-    private TextView surahsNumber;
-    private TextView surahsName;
-    private TextView surahsNameTranslationWithVersesCount;
+    private TextView surahsNumberView;
+    private TextView surahsNameView;
+    private TextView surahsNameTranslationWithAyahsCountView;
+
+    private Sures surah;
 
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_SURAHS_ID = "surahs_id";
-    private int surahsId;
+    private static final String THIS_SURAH = "this surah";
 
     public SurahFragment() {
         // Required empty public constructor
@@ -66,11 +65,11 @@ public class SurahFragment extends Fragment {
      *
      * @return A new instance of fragment SurahFragment.
      */
-    public static SurahFragment newInstance(Integer surahsId) {
+    public static SurahFragment newInstance(Sures surah) {
         SurahFragment fragment = new SurahFragment();
-        Log.d(TAG, "Bundle from HomeFragment is: " + surahsId);
+        Log.d(TAG, "Bundle from HomeFragment is: " + surah);
         Bundle args = new Bundle();
-        args.putInt(ARG_SURAHS_ID, surahsId);
+        args.putParcelable(THIS_SURAH, surah);
         fragment.setArguments(args);
         return fragment;
     }
@@ -79,7 +78,8 @@ public class SurahFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            surahsId = getArguments().getInt(ARG_SURAHS_ID);
+            surah = getArguments().getParcelable(THIS_SURAH);
+            Log.d(TAG, surah.toString());
         }
     }
 
@@ -87,7 +87,7 @@ public class SurahFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Наполняет layout этим фрагментом
-        View view = inflater.inflate(R.layout.fragment_surah, container, false);
+        View view = inflater.inflate(R.layout.into_fragment_surah, container, false);
 
         // Прячет нижнюю навигацию
         BottomNavigationView navBar = requireActivity().findViewById(R.id.nav_view);
@@ -103,9 +103,9 @@ public class SurahFragment extends Fragment {
         surahInfoBlock = view.findViewById(R.id.surahInfoBlock);
         NestedScrollView nestedScrollView = view.findViewById(R.id.nestedScrollView);
         //header
-        surahsNumber = view.findViewById(R.id.surahsNumberView);
-        surahsName = view.findViewById(R.id.surahsName);
-        surahsNameTranslationWithVersesCount = view.findViewById(R.id.surahsNameTranslationWithVersesCount);
+        surahsNumberView = view.findViewById(R.id.surahsNumber);
+        surahsNameView = view.findViewById(R.id.surahsName);
+        surahsNameTranslationWithAyahsCountView = view.findViewById(R.id.surahsNameTranslationWithAyahsCount);
 
 
         //Смотрит когда toolbar collapsed и убирает/добавляет кнопки
@@ -134,6 +134,18 @@ public class SurahFragment extends Fragment {
 
             }
         });
+
+        // заполняет header
+        int surahsNumber = surah.getNumber();
+        String surahsName = surah.getName();
+        String surahsNameTranslation = surah.getNameTranslate();
+        int ayahsCount = surah.getAyahsCount();
+        String surahsNameTranslationWithAyahsCount = surahsNameTranslation + ", " + ayahsCount + " verses";
+
+        surahsNumberView.setText(String.valueOf(surahsNumber));
+        surahsNameView.setText(surahsName);
+        surahsNameTranslationWithAyahsCountView.setText(surahsNameTranslationWithAyahsCount);
+
 
         return (view);
     }

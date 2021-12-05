@@ -12,91 +12,91 @@
 
 
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+<!--    <com.google.android.material.appbar.AppBarLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        >-->
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fitsSystemWindows="true"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:titleEnabled="false">
-
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/surahInfoBlock"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/backgroundLight"
-
-                >
-
-                <TextView
-                    android:id="@+id/surahsNumber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="4"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/roboto_light"
-                    android:textColor="@color/mainBlack"
-                    android:letterSpacing="0.05"
-                    android:layout_marginTop="50dp"/>
-
-                <TextView
-                    android:id="@+id/surahsName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="An-Nisa"
-                    app:layout_constraintTop_toBottomOf="@id/surahsNumber"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:textSize="28sp"
-                    android:fontFamily="@font/roboto_light"
-                    android:textColor="@color/mainBlack"
-                    android:letterSpacing="0.05"
-                    android:layout_marginTop="5dp"/>
-
-                <TextView
-                    android:id="@+id/surahsNameTranslationWithVersesCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="The Women, 176 verses"
-                    app:layout_constraintTop_toBottomOf="@id/surahsName"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/roboto_light"
-                    android:textColor="@color/lightGreyNotActive"
-                    android:letterSpacing="0.05"
-                    android:layout_marginTop="5dp"/>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_basmala"
-                    app:layout_constraintTop_toBottomOf="@id/surahsNameTranslationWithVersesCount"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="25dp"
-                    android:paddingBottom="28dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginRight="10dp" />
+<!--        <com.google.android.material.appbar.CollapsingToolbarLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fitsSystemWindows="true"-->
+<!--            app:layout_scrollFlags="scroll|exitUntilCollapsed"-->
+<!--            app:titleEnabled="false">-->
 
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:id="@+id/surahInfoBlock"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@color/backgroundLight"-->
+
+<!--                >-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/surahsNumber"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="4"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    android:textSize="16sp"-->
+<!--                    android:fontFamily="@font/roboto_light"-->
+<!--                    android:textColor="@color/mainBlack"-->
+<!--                    android:letterSpacing="0.05"-->
+<!--                    android:layout_marginTop="50dp"/>-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/surahsName"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="An-Nisa"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/surahsNumber"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    android:textSize="28sp"-->
+<!--                    android:fontFamily="@font/roboto_light"-->
+<!--                    android:textColor="@color/mainBlack"-->
+<!--                    android:letterSpacing="0.05"-->
+<!--                    android:layout_marginTop="5dp"/>-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/surahsNameTranslationWithVersesCount"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="The Women, 176 verses"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/surahsName"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:fontFamily="@font/roboto_light"-->
+<!--                    android:textColor="@color/lightGreyNotActive"-->
+<!--                    android:letterSpacing="0.05"-->
+<!--                    android:layout_marginTop="5dp"/>-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/ic_basmala"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/surahsNameTranslationWithVersesCount"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    android:layout_marginTop="25dp"-->
+<!--                    android:paddingBottom="28dp"-->
+<!--                    android:layout_marginEnd="10dp"-->
+<!--                    android:layout_marginRight="10dp" />-->
 
 
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-    </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/into_fragment_surah"/>
+<!--        </com.google.android.material.appbar.CollapsingToolbarLayout>-->
+
+<!--    </com.google.android.material.appbar.AppBarLayout>-->
+
+<!--    <include layout="@layout/into_fragment_surah"/>-->
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
