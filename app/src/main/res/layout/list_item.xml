@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -25,7 +25,6 @@
             android:letterSpacing="0.05"
             android:text="@string/_114"
             android:textColor="@color/mainBlack"
-
             android:textSize="12sp"
 
             app:layout_constraintBottom_toBottomOf="parent"

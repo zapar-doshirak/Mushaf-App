@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".view.ui.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -37,7 +37,7 @@
             app:layout_constraintTop_toBottomOf="@id/logoImageView" />
 
         <ImageView
-            android:id="@+id/ic_search"
+            android:id="@+id/searchIconImageView"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginTop="55dp"
@@ -49,20 +49,17 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <androidx.recyclerview.widget.RecyclerView
 
-            app:layout_constraintTop_toTopOf="parent"
-
             android:id="@+id/suresRecyclerView"
+            app:layout_constraintTop_toTopOf="parent"
             android:overScrollMode="never"
             android:scrollbarFadeDuration="@integer/material_motion_duration_long_1"
             android:layout_width="match_parent"
@@ -74,8 +71,6 @@
             android:requiresFadingEdge="vertical"
             android:fadingEdgeLength="30dp">
 
-
-
         </androidx.recyclerview.widget.RecyclerView>
 
         <include layout="@layout/bookmark"
@@ -86,8 +81,5 @@
             android:layout_marginBottom="55dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
 
 </androidx.appcompat.widget.LinearLayoutCompat>

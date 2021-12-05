@@ -7,21 +7,36 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.mushaf.ui.home.HomeFragment"
+        android:name="com.example.mushaf.view.ui.HomeFragment"
         android:label="@string/titleHome"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_settings"
+            app:destination="@id/navigation_settings" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_notes"
+            app:destination="@id/navigation_notes" />
+        <action
+            android:id="@+id/action_navigation_home_to_surahFragment"
+            app:destination="@id/surahFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_settings"
-        android:name="com.example.mushaf.ui.settings.SettingsFragment"
+        android:name="com.example.mushaf.view.ui.SettingsFragment"
         android:label="Dashboard"
         tools:layout="@layout/fragment_settings" />
 
     <fragment
         android:id="@+id/navigation_notes"
-        android:name="com.example.mushaf.ui.notes.NotesFragment"
+        android:name="com.example.mushaf.view.ui.NotesFragment"
         android:label="@string/titleNotes"
         tools:layout="@layout/fragment_notes" />
+    <fragment
+        android:id="@+id/surahFragment"
+        android:name="com.example.mushaf.view.ui.SurahFragment"
+        android:label="into_fragment_surah"
+        tools:layout="@layout/into_fragment_surah" />
 
 
 </navigation>

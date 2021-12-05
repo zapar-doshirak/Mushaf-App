@@ -35,8 +35,6 @@
         app:navGraph="@navigation/mobile_navigation"
         >
 
-
-
     </androidx.fragment.app.FragmentContainerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

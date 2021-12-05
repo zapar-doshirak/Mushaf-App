@@ -1,4 +1,6 @@
-﻿[
+﻿{"code":200,
+  "status":"OK",
+  "data":[
         {
           "number": 1,
           "name": "الْفَاتِحَة",
@@ -912,3 +914,4 @@
           "revelationType": "Makkah"
         }
       ]
+}

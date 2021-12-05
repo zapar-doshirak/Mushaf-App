@@ -5,7 +5,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.surah.SurahFragment"
+    tools:context=".view.ui.SurahFragment"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
 
@@ -165,9 +165,10 @@
                         android:layout_marginTop="5dp"/>
 
                     <ImageView
+                        android:id="@+id/basmalaImageView"
+                        android:src="@drawable/ic_basmala"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_basmala"
                         app:layout_constraintTop_toBottomOf="@id/surahsNameTranslationWithVersesCount"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -179,12 +180,10 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
                 <androidx.core.widget.NestedScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:clipToPadding="false">
-
 
                     <TextView
 
@@ -211,8 +210,6 @@ Ac odio tempor orci dapibus ultrices in. Aliquam id diam maecenas ultricies mi e
 Nibh mauris cursus mattis molestie a iaculis at erat. Urna nec tincidunt praesent semper. Gravida in fermentum et sollicitudin ac orci phasellus. Facilisis magna etiam tempor orci eu lobortis elementum nibh tellus. Nam libero justo laoreet sit. At volutpat diam ut venenatis tellus. Euismod nisi porta lorem mollis aliquam ut porttitor. Enim ut tellus elementum sagittis vitae et. Cursus euismod quis viverra nibh cras pulvinar mattis nunc sed. Lectus quam id leo in vitae turpis. Elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi. Diam quis enim lobortis scelerisque fermentum dui faucibus in. Mauris a diam maecenas sed enim ut sem viverra."
                         android:layout_margin="16dp"
                         android:textColor="@color/mainBlack"/>
-
-
 
                 </androidx.core.widget.NestedScrollView>
 

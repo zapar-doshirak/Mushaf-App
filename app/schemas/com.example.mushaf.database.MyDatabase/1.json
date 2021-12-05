@@ -2,17 +2,23 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "dda06c9358d460e5850278b4358f290a",
+    "identityHash": "31850c682e7b88c59fb1d4a00d39db3c",
     "entities": [
       {
         "tableName": "Sures",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`number` INTEGER NOT NULL, `name` TEXT, `nameTranslate` TEXT, `place` TEXT, `ayahsCount` INTEGER NOT NULL, PRIMARY KEY(`number`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`number` INTEGER NOT NULL, `arabicName` TEXT, `name` TEXT, `nameTranslate` TEXT, `place` TEXT, `ayahsCount` INTEGER NOT NULL, PRIMARY KEY(`number`))",
         "fields": [
           {
             "fieldPath": "number",
             "columnName": "number",
             "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "arabicName",
+            "columnName": "arabicName",
+            "affinity": "TEXT",
+            "notNull": false
           },
           {
             "fieldPath": "name",
@@ -52,7 +58,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'dda06c9358d460e5850278b4358f290a')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '31850c682e7b88c59fb1d4a00d39db3c')"
     ]
   }
 }
