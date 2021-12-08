@@ -1,6 +1,5 @@
 package com.example.mushaf.view.adapters;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,7 +52,7 @@ public class SuresAdapter extends RecyclerView.Adapter<SuresAdapter.SuresHolder>
 
                 //наполняет RecyclerList разметкой list_item
                 View layoutView = LayoutInflater.from(parent.getContext()).inflate(
-                        R.layout.list_item, parent, false);
+                        R.layout.sures_list_item, parent, false);
 
                 return new SuresHolder(layoutView);
         }

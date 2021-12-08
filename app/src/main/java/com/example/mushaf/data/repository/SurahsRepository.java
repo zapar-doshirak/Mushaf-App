@@ -16,7 +16,7 @@ public class SurahsRepository {
 
     private MyDao myDao;
     private LiveData<List<Sures>> allSures;
-    private LiveData<List<Ayahs>> allAyahs;
+    private LiveData<List<Ayahs>> surahAyahs;
 
     public SurahsRepository(Application application){
 
@@ -25,16 +25,14 @@ public class SurahsRepository {
         myDao = myDatabase.myDao();
 
         allSures = myDao.getAllSures();
-        allAyahs = myDao.getAllAyahs();
-
     }
 
     public LiveData<List<Sures>> getAllSures() {
-        Log.d("sures", "method getAllSures() from SurahsRepository");
         return allSures;
     }
 
-    public LiveData<List<Ayahs>> getAllAyahs() {
-        return allAyahs;
+    public LiveData<List<Ayahs>> getSurahAyahs(int surahNumber) {
+        surahAyahs = myDao.getSurahAyahs(surahNumber);
+        return surahAyahs;
     }
 }

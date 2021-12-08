@@ -7,6 +7,8 @@ import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,6 +21,8 @@ import android.widget.TextView;
 import com.example.mushaf.R;
 import com.example.mushaf.data.model.Ayahs;
 import com.example.mushaf.data.model.Sures;
+import com.example.mushaf.view.adapters.AyahsAdapter;
+import com.example.mushaf.view.adapters.SuresAdapter;
 import com.example.mushaf.viewmodel.HomeViewModel;
 import com.example.mushaf.viewmodel.SurahViewModel;
 import com.google.android.material.appbar.AppBarLayout;
@@ -32,12 +36,11 @@ import java.util.List;
  * Use the {@link SurahFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SurahFragment extends Fragment {
+public class SurahFragment extends Fragment implements AyahsAdapter.RecyclerViewOnClickListener{
 
     private static final String TAG = "SurahFragment";
 
     private SurahViewModel surahViewModel;
-    private HomeViewModel homeViewModel;
 
     //views
     private CollapsingToolbarLayout collapsingToolbar;
@@ -48,6 +51,10 @@ public class SurahFragment extends Fragment {
     private TextView surahsNumberView;
     private TextView surahsNameView;
     private TextView surahsNameTranslationWithAyahsCountView;
+
+    private RecyclerView ayahsRecyclerView;
+    private RecyclerView.LayoutManager layoutManager;
+    private AyahsAdapter adapter;
 
     private Sures surah;
 
@@ -65,11 +72,11 @@ public class SurahFragment extends Fragment {
      *
      * @return A new instance of fragment SurahFragment.
      */
-    public static SurahFragment newInstance(Sures surah) {
+    public static SurahFragment newInstance(Sures surahNumber) {
         SurahFragment fragment = new SurahFragment();
-        Log.d(TAG, "Bundle from HomeFragment is: " + surah);
+        Log.d(TAG, "Bundle from HomeFragment is: " + surahNumber);
         Bundle args = new Bundle();
-        args.putParcelable(THIS_SURAH, surah);
+        args.putParcelable(THIS_SURAH, surahNumber);
         fragment.setArguments(args);
         return fragment;
     }
@@ -96,12 +103,10 @@ public class SurahFragment extends Fragment {
         //find views
 //      CoordinatorLayout coordinatorLayout = view.findViewById(R.id.fragment_surah);
         FrameLayout surahBlock = view.findViewById(R.id.surahBlock);
-        collapsingToolbar = view.findViewById(R.id.collapsingToolbar);
-        appBar = view.findViewById(R.id.appBarLayout);
+//        appBar = view.findViewById(R.id.appBarLayout);
         buttonBack = view.findViewById(R.id.buttonBack);
         buttonMore = view.findViewById(R.id.buttonMore);
         surahInfoBlock = view.findViewById(R.id.surahInfoBlock);
-        NestedScrollView nestedScrollView = view.findViewById(R.id.nestedScrollView);
         //header
         surahsNumberView = view.findViewById(R.id.surahsNumber);
         surahsNameView = view.findViewById(R.id.surahsName);
@@ -109,32 +114,23 @@ public class SurahFragment extends Fragment {
 
 
         //Смотрит когда toolbar collapsed и убирает/добавляет кнопки
-        appBar.addOnOffsetChangedListener((appBarLayout, verticalOffset) -> {
-
-            if (Math.abs(verticalOffset) == appBarLayout.getTotalScrollRange()) {
-
-                // Collapsed
-                buttonBack.animate().alpha(0.0f).setDuration(50);
-                buttonMore.animate().alpha(0.0f).setDuration(50);
-
-
-            } else if (verticalOffset == 0) {
-
-                // Expanded
-                buttonBack.animate().alpha(1.0f).setDuration(150);
-                buttonMore.animate().alpha(1.0f).setDuration(150);
-            }
-        });
-
-        //создает ViewModelProvider и ставит наблюдателя на список с аятами
-        surahViewModel = new ViewModelProvider(this).get(SurahViewModel.class);
-        surahViewModel.getAllAyahs().observe(getViewLifecycleOwner(), new Observer<List<Ayahs>>() {
-            @Override
-            public void onChanged(List<Ayahs> sures) {
-
-            }
-        });
-
+//        appBar.addOnOffsetChangedListener((appBarLayout, verticalOffset) -> {
+//
+//            if (Math.abs(verticalOffset) == appBarLayout.getTotalScrollRange()) {
+//
+//                // Collapsed
+//                buttonBack.animate().alpha(0.0f).setDuration(50);
+//                buttonMore.animate().alpha(0.0f).setDuration(50);
+//
+//
+//            } else if (verticalOffset == 0) {
+//
+//                // Expanded
+//                buttonBack.animate().alpha(1.0f).setDuration(150);
+//                buttonMore.animate().alpha(1.0f).setDuration(150);
+//            }
+//        });
+//
         // заполняет header
         int surahsNumber = surah.getNumber();
         String surahsName = surah.getName();
@@ -146,8 +142,39 @@ public class SurahFragment extends Fragment {
         surahsNameView.setText(surahsName);
         surahsNameTranslationWithAyahsCountView.setText(surahsNameTranslationWithAyahsCount);
 
+        //RecyclerView stuff
+        ayahsRecyclerView = view.findViewById(R.id.ayahsRecyclerView);
+        ayahsRecyclerView.setHasFixedSize(true);
+
+        layoutManager = new LinearLayoutManager(view.getContext());
+        ayahsRecyclerView.setLayoutManager(layoutManager);
+
+        adapter = new AyahsAdapter(this);
+        ayahsRecyclerView.setAdapter(adapter);
+
+        //создает ViewModelProvider и ставит наблюдателя на список с аятами
+        surahViewModel = new ViewModelProvider(this).get(SurahViewModel.class);
+        surahViewModel.getSurahAyahs(surahsNumber).observe(getViewLifecycleOwner(), new Observer<List<Ayahs>>() {
+            @Override
+            public void onChanged(List<Ayahs> ayahs) {
+                Log.d(TAG, "Ayahs of this surah: " + ayahs);
+                adapter.setAyahs(ayahs);
+
+            }
+        });
+
+//        long startTime = System.nanoTime();
+//        ...some process...
+//        long endTime = System.nanoTime();
+//        long methodeDuration = (endTime - startTime);
+//        Log.d(TAG, "Execute time: " + methodeDuration);
 
         return (view);
     }
 
+    @Override
+    public void onItemClick(Ayahs ayah) {
+        //todo: поставить сюда отображение фрагмента с аятом с подробностями
+        Log.d(TAG, "OnAyahClick in SurahFragment: " + ayah);
+    }
 }

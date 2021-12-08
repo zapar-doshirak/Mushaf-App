@@ -17,7 +17,7 @@ import java.util.List;
 public class SurahViewModel extends AndroidViewModel {
 
     private SurahsRepository repository;
-    private LiveData<List<Ayahs>> allAyahs;
+    private LiveData<List<Ayahs>> surahAyahs;
 
     /**
      * We use the application as context in the constructor
@@ -28,11 +28,12 @@ public class SurahViewModel extends AndroidViewModel {
         super(application);
 
         repository = new SurahsRepository(application);
-        allAyahs = repository.getAllAyahs();
+        //surahAyahs = repository.getSurahAyahs();
 
     }
 
-    public LiveData<List<Ayahs>> getAllAyahs() {
-        return allAyahs;
+    public LiveData<List<Ayahs>> getSurahAyahs(int surahNumber) {
+        surahAyahs = repository.getSurahAyahs(surahNumber);
+        return surahAyahs;
     }
 }

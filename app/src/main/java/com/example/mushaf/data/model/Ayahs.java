@@ -2,9 +2,10 @@ package com.example.mushaf.data.model;
 
 import androidx.room.Entity;
 import androidx.room.Ignore;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "ayahs")
+@Entity(tableName = "ayahs", indices = {@Index("surahNumber")})
 public class Ayahs {
 
     @PrimaryKey
@@ -13,9 +14,16 @@ public class Ayahs {
     private String ayahText;
     private int numberInSurah;
 
+
     public Ayahs(int number, int surahNumber, String ayahText, int numberInSurah) {
         this.number = number;
         this.surahNumber = surahNumber;
+        this.ayahText = ayahText;
+        this.numberInSurah = numberInSurah;
+    }
+
+    @Ignore
+    public Ayahs(String ayahText, int numberInSurah) {
         this.ayahText = ayahText;
         this.numberInSurah = numberInSurah;
     }
