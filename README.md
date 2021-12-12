@@ -26,6 +26,13 @@ I use pre-packaged database with meta-data and original text of verse. All other
 Later, user need be able to take notes on each verse + add images and design card with note. So, there will be menu with 3 items: book(main), setting and notes.
 Also, there will be book search and notes search, mode switcher and more.
 
-Design was made in Figma:
+Design was made by Figma:
+
+![image](https://user-images.githubusercontent.com/72201937/145724222-e8583c27-bf2a-4aa6-80e0-c0aab0ae3250.png)
+
+![image](https://user-images.githubusercontent.com/72201937/145724257-abc20c40-c5ae-4973-96c5-80d18a814dca.png)
+
+# Updatings:
+Right now, I want to make a sketch of loading the minimum portion of the verse and adding it to the notes to make sure the projected architecture is correct
 
 
