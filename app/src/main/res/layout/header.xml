@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/surahInfoBlock1"
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent">
-
-
-<androidx.constraintlayout.widget.ConstraintLayout
-
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     android:background="@color/backgroundLight"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
         <ImageView
             android:id="@+id/buttonBack"
@@ -90,6 +81,4 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-</FrameLayout>
 

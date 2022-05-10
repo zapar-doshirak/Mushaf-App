@@ -3,7 +3,6 @@ package com.example.mushaf.view.ui;
 import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -22,8 +21,6 @@ import com.example.mushaf.R;
 import com.example.mushaf.data.model.Ayahs;
 import com.example.mushaf.data.model.Sures;
 import com.example.mushaf.view.adapters.AyahsAdapter;
-import com.example.mushaf.view.adapters.SuresAdapter;
-import com.example.mushaf.viewmodel.HomeViewModel;
 import com.example.mushaf.viewmodel.SurahViewModel;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -36,7 +33,7 @@ import java.util.List;
  * Use the {@link SurahFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SurahFragment extends Fragment implements AyahsAdapter.RecyclerViewOnClickListener{
+public class SurahFragment extends Fragment implements AyahsAdapter.RecyclerViewOnClickListener {
 
     private static final String TAG = "SurahFragment";
 
@@ -57,7 +54,6 @@ public class SurahFragment extends Fragment implements AyahsAdapter.RecyclerView
     private AyahsAdapter adapter;
 
     private Sures surah;
-
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String THIS_SURAH = "this surah";
@@ -103,14 +99,16 @@ public class SurahFragment extends Fragment implements AyahsAdapter.RecyclerView
         //find views
 //      CoordinatorLayout coordinatorLayout = view.findViewById(R.id.fragment_surah);
         FrameLayout surahBlock = view.findViewById(R.id.surahBlock);
+
+
 //        appBar = view.findViewById(R.id.appBarLayout);
-        buttonBack = view.findViewById(R.id.buttonBack);
-        buttonMore = view.findViewById(R.id.buttonMore);
-        surahInfoBlock = view.findViewById(R.id.surahInfoBlock);
-        //header
-        surahsNumberView = view.findViewById(R.id.surahsNumber);
-        surahsNameView = view.findViewById(R.id.surahsName);
-        surahsNameTranslationWithAyahsCountView = view.findViewById(R.id.surahsNameTranslationWithAyahsCount);
+//        buttonBack = view.findViewById(R.id.buttonBack);
+        //       buttonMore = view.findViewById(R.id.buttonMore);
+        //frtgtfrv         surahInfoBlock = view.findViewById(R.id.surahInfoBlock);
+//        //header
+//        surahsNumberView = view.findViewById(R.id.surahsNumber);
+//        surahsNameView = view.findViewById(R.id.surahsName);
+//        surahsNameTranslationWithAyahsCountView = view.findViewById(R.id.surahsNameTranslationWithAyahsCount);
 
 
         //Смотрит когда toolbar collapsed и убирает/добавляет кнопки
@@ -133,14 +131,14 @@ public class SurahFragment extends Fragment implements AyahsAdapter.RecyclerView
 //
         // заполняет header
         int surahsNumber = surah.getNumber();
-        String surahsName = surah.getName();
-        String surahsNameTranslation = surah.getNameTranslate();
-        int ayahsCount = surah.getAyahsCount();
-        String surahsNameTranslationWithAyahsCount = surahsNameTranslation + ", " + ayahsCount + " verses";
+//        String surahsName = surah.getName();
+//        String surahsNameTranslation = surah.getNameTranslate();
+//        int ayahsCount = surah.getAyahsCount();
+//        String surahsNameTranslationWithAyahsCount = surahsNameTranslation + ", " + ayahsCount + " verses";
 
-        surahsNumberView.setText(String.valueOf(surahsNumber));
-        surahsNameView.setText(surahsName);
-        surahsNameTranslationWithAyahsCountView.setText(surahsNameTranslationWithAyahsCount);
+//        surahsNumberView.setText(String.valueOf(surahsNumber));
+//        surahsNameView.setText(surahsName);
+//        surahsNameTranslationWithAyahsCountView.setText(surahsNameTranslationWithAyahsCount);
 
         //RecyclerView stuff
         ayahsRecyclerView = view.findViewById(R.id.ayahsRecyclerView);
@@ -158,10 +156,11 @@ public class SurahFragment extends Fragment implements AyahsAdapter.RecyclerView
             @Override
             public void onChanged(List<Ayahs> ayahs) {
                 Log.d(TAG, "Ayahs of this surah: " + ayahs);
-                adapter.setAyahs(ayahs);
+                adapter.setAyahs(ayahs, surah);
 
             }
         });
+
 
 //        long startTime = System.nanoTime();
 //        ...some process...
@@ -177,4 +176,5 @@ public class SurahFragment extends Fragment implements AyahsAdapter.RecyclerView
         //todo: поставить сюда отображение фрагмента с аятом с подробностями
         Log.d(TAG, "OnAyahClick in SurahFragment: " + ayah);
     }
+
 }

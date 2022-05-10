@@ -22,56 +22,56 @@
         android:minHeight="0dp"
         >
 
-<!--        <com.google.android.material.appbar.CollapsingToolbarLayout-->
-<!--            android:id="@+id/collapsingToolbar"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="80dp"-->
-<!--            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed|enterAlways"-->
-<!--            app:titleEnabled="true"-->
-<!--            app:expandedTitleGravity="center_horizontal"-->
-<!--            app:expandedTitleMarginBottom="5dp"-->
-<!--            app:expandedTitleTextAppearance="@style/headExpanded"-->
-<!--            app:collapsedTitleTextAppearance="@style/headCollapsed"-->
-<!--            >-->
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed|enterAlways"
+            app:titleEnabled="true"
+            app:expandedTitleGravity="center_horizontal"
+            app:expandedTitleMarginBottom="5dp"
+            app:expandedTitleTextAppearance="@style/headExpanded"
+            app:collapsedTitleTextAppearance="@style/headCollapsed"
+            >
 
-<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content">-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-<!--                <ImageView-->
-<!--                    android:id="@+id/buttonBack"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:src="@drawable/ic_back"-->
-<!--                    app:layout_constraintTop_toTopOf="parent"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    android:layout_margin="34dp"-->
-<!--                    android:animateLayoutChanges="true"/>-->
+                <ImageView
+                    android:id="@+id/buttonBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_back"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_margin="34dp"
+                    android:animateLayoutChanges="true"/>
 
-<!--                <ImageView-->
-<!--                    android:id="@+id/buttonMore"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:src="@drawable/ic_more_3dots"-->
-<!--                    app:layout_constraintTop_toTopOf="parent"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    android:layout_margin="34dp"-->
-<!--                    android:animateLayoutChanges="true"/>-->
+                <ImageView
+                    android:id="@+id/buttonMore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_more_3dots"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_margin="34dp"
+                    android:animateLayoutChanges="true"/>
 
-<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--            <androidx.appcompat.widget.Toolbar-->
-<!--                android:id="@+id/toolBar"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="25dp"-->
-<!--                app:title="4. An-Nisa"-->
-<!--                android:background="@color/backgroundLight"-->
-<!--                >-->
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolBar"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                app:title="4. An-Nisa"
+                android:background="@color/backgroundLight"
+                >
 
-<!--            </androidx.appcompat.widget.Toolbar>-->
+            </androidx.appcompat.widget.Toolbar>
 
 
-<!--        </com.google.android.material.appbar.CollapsingToolbarLayout>-->
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
 
 
 
@@ -95,89 +95,89 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/surahInfoBlock"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/backgroundLight"
-                    >
+<!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:id="@+id/surahInfoBlock"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@color/backgroundLight"-->
+<!--                    >-->
 
-                    <ImageView
-                        android:id="@+id/buttonBack2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_back"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:layout_margin="34dp"
-                        android:animateLayoutChanges="true"/>
+<!--                    <ImageView-->
+<!--                        android:id="@+id/buttonBack2"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:src="@drawable/ic_back"-->
+<!--                        app:layout_constraintTop_toTopOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        android:layout_margin="34dp"-->
+<!--                        android:animateLayoutChanges="true"/>-->
 
-                    <ImageView
-                        android:id="@+id/buttonMore2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_more_3dots"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        android:layout_margin="34dp"
-                        android:animateLayoutChanges="true"/>
+<!--                    <ImageView-->
+<!--                        android:id="@+id/buttonMore2"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:src="@drawable/ic_more_3dots"-->
+<!--                        app:layout_constraintTop_toTopOf="parent"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        android:layout_margin="34dp"-->
+<!--                        android:animateLayoutChanges="true"/>-->
 
-                    <TextView
-                        android:id="@+id/surahsNumber"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="4"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        android:textSize="36sp"
-                        android:fontFamily="@font/roboto_light"
-                        android:textColor="@color/mainBlack"
-                        android:letterSpacing="0.05"
-                        android:layout_marginTop="50dp"/>
+<!--                    <TextView-->
+<!--                        android:id="@+id/surahsNumber"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="4"-->
+<!--                        app:layout_constraintTop_toTopOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        android:textSize="36sp"-->
+<!--                        android:fontFamily="@font/roboto_light"-->
+<!--                        android:textColor="@color/mainBlack"-->
+<!--                        android:letterSpacing="0.05"-->
+<!--                        android:layout_marginTop="50dp"/>-->
 
-                    <TextView
-                        android:id="@+id/surahsName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="An-Nisa"
-                        app:layout_constraintTop_toBottomOf="@id/surahsNumber"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        android:textSize="28sp"
-                        android:fontFamily="@font/roboto_light"
-                        android:textColor="@color/mainBlack"
-                        android:letterSpacing="0.05"
-                        android:layout_marginTop="5dp"/>
+<!--                    <TextView-->
+<!--                        android:id="@+id/surahsName"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="An-Nisa"-->
+<!--                        app:layout_constraintTop_toBottomOf="@id/surahsNumber"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        android:textSize="28sp"-->
+<!--                        android:fontFamily="@font/roboto_light"-->
+<!--                        android:textColor="@color/mainBlack"-->
+<!--                        android:letterSpacing="0.05"-->
+<!--                        android:layout_marginTop="5dp"/>-->
 
-                    <TextView
-                        android:id="@+id/surahsNameTranslationWithAyahsCount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="The Women, 176 verses"
-                        app:layout_constraintTop_toBottomOf="@id/surahsName"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        android:textSize="18sp"
-                        android:fontFamily="@font/roboto_light"
-                        android:textColor="@color/lightGreyNotActive"
-                        android:letterSpacing="0.05"
-                        android:layout_marginTop="5dp"/>
+<!--                    <TextView-->
+<!--                        android:id="@+id/surahsNameTranslationWithAyahsCount"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="The Women, 176 verses"-->
+<!--                        app:layout_constraintTop_toBottomOf="@id/surahsName"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        android:textSize="18sp"-->
+<!--                        android:fontFamily="@font/roboto_light"-->
+<!--                        android:textColor="@color/lightGreyNotActive"-->
+<!--                        android:letterSpacing="0.05"-->
+<!--                        android:layout_marginTop="5dp"/>-->
 
-                    <ImageView
-                        android:id="@+id/basmalaImageView"
-                        android:src="@drawable/ic_basmala"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/surahsNameTranslationWithAyahsCount"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        android:layout_marginTop="25dp"
-                        android:paddingBottom="28dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginRight="10dp" />
+<!--                    <ImageView-->
+<!--                        android:id="@+id/basmalaImageView"-->
+<!--                        android:src="@drawable/ic_basmala"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        app:layout_constraintTop_toBottomOf="@id/surahsNameTranslationWithAyahsCount"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        android:layout_marginTop="25dp"-->
+<!--                        android:paddingBottom="28dp"-->
+<!--                        android:layout_marginEnd="10dp"-->
+<!--                        android:layout_marginRight="10dp" />-->
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 
 <!--                <androidx.core.widget.NestedScrollView-->

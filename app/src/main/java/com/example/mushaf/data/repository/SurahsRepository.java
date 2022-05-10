@@ -1,7 +1,6 @@
 package com.example.mushaf.data.repository;
 
 import android.app.Application;
-import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 
@@ -14,9 +13,11 @@ import java.util.List;
 
 public class SurahsRepository {
 
+    private static final String TAG = "SurahsRepository";
     private MyDao myDao;
     private LiveData<List<Sures>> allSures;
     private LiveData<List<Ayahs>> surahAyahs;
+
 
     public SurahsRepository(Application application){
 
@@ -35,4 +36,5 @@ public class SurahsRepository {
         surahAyahs = myDao.getSurahAyahs(surahNumber);
         return surahAyahs;
     }
+
 }
