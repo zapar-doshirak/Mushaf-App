@@ -16,11 +16,9 @@ import com.example.mushaf.data.model.Sures;
 
 @Dao
 public interface MyDao {
-
     @Query("SELECT * FROM ayahs WHERE surahNumber = :surahNumber")
     LiveData<List<Ayahs>> getSurahAyahs(int surahNumber);
 
     @Query("SELECT * FROM sures_meta ")
     LiveData<List<Sures>> getAllSures();
-
 }

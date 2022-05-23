@@ -12,72 +12,72 @@
     android:orientation="vertical"
     android:background="@color/backgroundLight">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:elevation="0dp"
-        android:fitsSystemWindows="true"
-        android:background="@color/backgroundLight"
-        android:minHeight="0dp"
-        >
+<!--    <com.google.android.material.appbar.AppBarLayout-->
+<!--        android:id="@+id/appBarLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:elevation="0dp"-->
+<!--        android:fitsSystemWindows="true"-->
+<!--        android:background="@color/backgroundLight"-->
+<!--        android:minHeight="0dp"-->
+<!--        >-->
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/collapsingToolbar"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed|enterAlways"
-            app:titleEnabled="true"
-            app:expandedTitleGravity="center_horizontal"
-            app:expandedTitleMarginBottom="5dp"
-            app:expandedTitleTextAppearance="@style/headExpanded"
-            app:collapsedTitleTextAppearance="@style/headCollapsed"
-            >
+<!--        <com.google.android.material.appbar.CollapsingToolbarLayout-->
+<!--            android:id="@+id/collapsingToolbar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="80dp"-->
+<!--            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed|enterAlways"-->
+<!--            app:titleEnabled="true"-->
+<!--            app:expandedTitleGravity="center_horizontal"-->
+<!--            app:expandedTitleMarginBottom="5dp"-->
+<!--            app:expandedTitleTextAppearance="@style/headExpanded"-->
+<!--            app:collapsedTitleTextAppearance="@style/headCollapsed"-->
+<!--            >-->
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content">-->
 
-                <ImageView
-                    android:id="@+id/buttonBack"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_back"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_margin="34dp"
-                    android:animateLayoutChanges="true"/>
+<!--                <ImageView-->
+<!--                    android:id="@+id/buttonBack"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/ic_back"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    android:layout_margin="34dp"-->
+<!--                    android:animateLayoutChanges="true"/>-->
 
-                <ImageView
-                    android:id="@+id/buttonMore"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_more_3dots"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_margin="34dp"
-                    android:animateLayoutChanges="true"/>
+<!--                <ImageView-->
+<!--                    android:id="@+id/buttonMore"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/ic_more_3dots"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    android:layout_margin="34dp"-->
+<!--                    android:animateLayoutChanges="true"/>-->
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolBar"
-                android:layout_width="match_parent"
-                android:layout_height="25dp"
-                app:title="4. An-Nisa"
-                android:background="@color/backgroundLight"
-                >
+<!--            <androidx.appcompat.widget.Toolbar-->
+<!--                android:id="@+id/toolBar"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="25dp"-->
+<!--                app:title="4. An-Nisa"-->
+<!--                android:background="@color/backgroundLight"-->
+<!--                >-->
 
-            </androidx.appcompat.widget.Toolbar>
-
-
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
+<!--            </androidx.appcompat.widget.Toolbar>-->
 
 
+<!--        </com.google.android.material.appbar.CollapsingToolbarLayout>-->
 
-    </com.google.android.material.appbar.AppBarLayout>
 
-    <FrameLayout
+
+<!--    </com.google.android.material.appbar.AppBarLayout>-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/surahBlock"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -85,15 +85,23 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         >
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationView"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            app:lottie_rawRes="@raw/lottie_loading"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
 <!--        <androidx.core.widget.NestedScrollView-->
 <!--            android:id="@+id/nestedScrollView"-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="match_parent">-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
 
 <!--                <androidx.constraintlayout.widget.ConstraintLayout-->
 <!--                    android:id="@+id/surahInfoBlock"-->
@@ -200,15 +208,12 @@
                         android:requiresFadingEdge="vertical"
                         android:fadingEdgeLength="30dp"/>
 
-<!--                </androidx.core.widget.NestedScrollView>-->
 
-            </LinearLayout>
+
+<!--                </androidx.core.widget.NestedScrollView>-->
 
 <!--        </androidx.core.widget.NestedScrollView>-->
 
-    </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>

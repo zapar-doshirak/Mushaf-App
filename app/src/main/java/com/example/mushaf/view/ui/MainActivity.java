@@ -28,10 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
         //find views
         BottomNavigationView navView = findViewById(R.id.nav_view);
-
-
-        //BLA-bLA-bLA about navigationBottomView
-
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
@@ -42,17 +38,5 @@ public class MainActivity extends AppCompatActivity {
         assert navHostFragment != null;
         NavController navController = navHostFragment.getNavController();
         NavigationUI.setupWithNavController(navView, navController);
-
-
     }
-
-//    @Override
-//    public void onBackPressed() {
-//        if (getFragmentManager().getBackStackEntryCount() == 0) {
-//            this.finish();
-//        } else {
-//            getFragmentManager().popBackStack();
-//        }
-//    }
-
 }

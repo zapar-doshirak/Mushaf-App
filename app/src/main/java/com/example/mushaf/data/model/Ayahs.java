@@ -14,7 +14,6 @@ public class Ayahs {
     private String ayahText;
     private int numberInSurah;
 
-
     public Ayahs(int number, int surahNumber, String ayahText, int numberInSurah) {
         this.number = number;
         this.surahNumber = surahNumber;
@@ -59,5 +58,4 @@ public class Ayahs {
     public void setNumberInSurah(int numberInSurah) {
         this.numberInSurah = numberInSurah;
     }
-
 }

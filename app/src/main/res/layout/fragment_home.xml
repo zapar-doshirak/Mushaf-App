@@ -17,6 +17,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
+            android:paddingBottom="20dp"
             android:foregroundGravity="center_horizontal"
             android:src="@drawable/ic_logo_al_quran_big"
             app:layout_constraintEnd_toEndOf="parent"
@@ -24,17 +25,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
-        <ImageView
-            android:id="@+id/istiazahImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:paddingBottom="15dp"
-            android:foregroundGravity="center_horizontal"
-            android:src="@drawable/ic_istiazah_big"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/logoImageView" />
+<!--        <ImageView-->
+<!--            android:id="@+id/istiazahImageView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:paddingTop="10dp"-->
+<!--            android:paddingBottom="15dp"-->
+<!--            android:foregroundGravity="center_horizontal"-->
+<!--            android:src="@drawable/ic_istiazah_big"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/logoImageView" />-->
 
         <ImageView
             android:id="@+id/searchIconImageView"
@@ -67,6 +68,7 @@
             android:scrollbars="vertical"
             tools:listitem="@layout/sures_list_item"
             android:background="@color/backgroundLight"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 
             android:requiresFadingEdge="vertical"
             android:fadingEdgeLength="30dp">

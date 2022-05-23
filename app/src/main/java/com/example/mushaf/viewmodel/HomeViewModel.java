@@ -15,8 +15,8 @@ import java.util.List;
 
 public class HomeViewModel extends AndroidViewModel {
 
-    private SurahsRepository repository;
-    private LiveData<List<Sures>> allSures;
+    private final SurahsRepository repository;
+    private final LiveData<List<Sures>> allSures;
 
     /**
      * We use the application as context in the constructor
@@ -25,10 +25,8 @@ public class HomeViewModel extends AndroidViewModel {
      */
     public HomeViewModel(@NonNull Application application) {
         super(application);
-
         repository = new SurahsRepository(application);
         allSures = repository.getAllSures();
-
     }
 
     public LiveData<List<Sures>> getAllSures() {

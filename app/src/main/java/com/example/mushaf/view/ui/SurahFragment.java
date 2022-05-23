@@ -2,7 +2,6 @@ package com.example.mushaf.view.ui;
 
 import android.os.Bundle;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -10,20 +9,20 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mushaf.R;
 import com.example.mushaf.data.model.Ayahs;
 import com.example.mushaf.data.model.Sures;
+import com.example.mushaf.data.net.response.ApiResponse;
+import com.example.mushaf.data.net.response.SurahResponse;
 import com.example.mushaf.view.adapters.AyahsAdapter;
 import com.example.mushaf.viewmodel.SurahViewModel;
-import com.google.android.material.appbar.AppBarLayout;
-import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
@@ -33,21 +32,11 @@ import java.util.List;
  * Use the {@link SurahFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SurahFragment extends Fragment implements AyahsAdapter.RecyclerViewOnClickListener {
+public class SurahFragment extends Fragment implements AyahsAdapter.OnItemClickListener {
 
     private static final String TAG = "SurahFragment";
 
     private SurahViewModel surahViewModel;
-
-    //views
-    private CollapsingToolbarLayout collapsingToolbar;
-    private AppBarLayout appBar;
-    private ImageView buttonBack;
-    private ImageView buttonMore;
-    private ConstraintLayout surahInfoBlock;
-    private TextView surahsNumberView;
-    private TextView surahsNameView;
-    private TextView surahsNameTranslationWithAyahsCountView;
 
     private RecyclerView ayahsRecyclerView;
     private RecyclerView.LayoutManager layoutManager;
@@ -98,7 +87,7 @@ public class SurahFragment extends Fragment implements AyahsAdapter.RecyclerView
 
         //find views
 //      CoordinatorLayout coordinatorLayout = view.findViewById(R.id.fragment_surah);
-        FrameLayout surahBlock = view.findViewById(R.id.surahBlock);
+//        FrameLayout surahBlock = view.findViewById(R.id.surahBlock);
 
 
 //        appBar = view.findViewById(R.id.appBarLayout);
@@ -148,7 +137,6 @@ public class SurahFragment extends Fragment implements AyahsAdapter.RecyclerView
         ayahsRecyclerView.setLayoutManager(layoutManager);
 
         adapter = new AyahsAdapter(this);
-        ayahsRecyclerView.setAdapter(adapter);
 
         //создает ViewModelProvider и ставит наблюдателя на список с аятами
         surahViewModel = new ViewModelProvider(this).get(SurahViewModel.class);
@@ -157,9 +145,19 @@ public class SurahFragment extends Fragment implements AyahsAdapter.RecyclerView
             public void onChanged(List<Ayahs> ayahs) {
                 Log.d(TAG, "Ayahs of this surah: " + ayahs);
                 adapter.setAyahs(ayahs, surah);
-
             }
         });
+
+        surahViewModel.getAyahsTranslation(surahsNumber, "ru.kuliev").observe(getViewLifecycleOwner(), response -> {
+                if(response!=null){
+                    Log.d(TAG, "Translation of this surah: " + response);
+                    adapter.setAyahsTranslation(response, surah);
+                    ayahsRecyclerView.setAdapter(adapter);
+                } else{
+                    Toast.makeText(getActivity(), "Please check your internet connection or try again later", Toast.LENGTH_LONG).show();
+                }
+        });
+
 
 
 //        long startTime = System.nanoTime();
@@ -176,5 +174,4 @@ public class SurahFragment extends Fragment implements AyahsAdapter.RecyclerView
         //todo: поставить сюда отображение фрагмента с аятом с подробностями
         Log.d(TAG, "OnAyahClick in SurahFragment: " + ayah);
     }
-
 }

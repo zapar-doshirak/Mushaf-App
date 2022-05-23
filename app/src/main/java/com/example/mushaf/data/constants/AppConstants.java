@@ -1,5 +1,5 @@
 package com.example.mushaf.data.constants;
 
 public class AppConstants {
-    public static final String BASE_URL = "http://api.alquran.cloud/v1/";
+    public static final String BASE_URL = "https://api.alquran.cloud/v1/";
 }

@@ -13,11 +13,9 @@ import com.example.mushaf.data.model.Sures;
 public abstract class MyDatabase extends RoomDatabase {
 
     private static final String DB_NAME = "mushaf.db";
-
     //create the instance so we wouldn't create multiple instances of the database
     // and use the same instance throughout the application which is accessed through the static variable
     private static MyDatabase instance;
-
     //access to dao
     public abstract MyDao myDao();
 
@@ -28,15 +26,11 @@ public abstract class MyDatabase extends RoomDatabase {
      * eliminating creating multiple instances.
      */
     public static synchronized MyDatabase getInstance(Context context){
-
         if (instance == null) {
             instance = Room.databaseBuilder(context.getApplicationContext(),
                     MyDatabase.class, DB_NAME)
                     .createFromAsset("database/sures.db")
                     .build();
-        }
-        return instance;
+        }return instance;
     }
-
-
 }

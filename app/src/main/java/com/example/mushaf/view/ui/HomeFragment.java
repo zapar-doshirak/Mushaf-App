@@ -2,7 +2,6 @@
 package com.example.mushaf.view.ui;
 
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +12,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mushaf.R;
@@ -22,10 +20,9 @@ import com.example.mushaf.data.model.Sures;
 import com.example.mushaf.viewmodel.HomeViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFragment extends Fragment implements SuresAdapter.RecyclerViewOnClickListener {
+public class HomeFragment extends Fragment implements SuresAdapter.OnItemClickListener {
 
     private static final String TAG = "HomeFragment";
     private HomeViewModel homeViewModel;
@@ -33,7 +30,6 @@ public class HomeFragment extends Fragment implements SuresAdapter.RecyclerViewO
     //Для списка сур, RecyclerView
     private RecyclerView recyclerView;
     private SuresAdapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -44,17 +40,10 @@ public class HomeFragment extends Fragment implements SuresAdapter.RecyclerViewO
         BottomNavigationView navBar = requireActivity().findViewById(R.id.nav_view);
         navBar.setVisibility(View.VISIBLE);
 
-
         //RecyclerView stuff
         recyclerView = view.findViewById(R.id.suresRecyclerView);
-        recyclerView.setHasFixedSize(true);
-
-        layoutManager = new LinearLayoutManager(view.getContext());
-        recyclerView.setLayoutManager(layoutManager);
-
         adapter = new SuresAdapter(this);
         recyclerView.setAdapter(adapter);
-
 
         //устанавливает viewmodel и наблюдатель
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
@@ -72,14 +61,11 @@ public class HomeFragment extends Fragment implements SuresAdapter.RecyclerViewO
 //        long endTime = System.nanoTime();
 //        long methodeDuration = (endTime - startTime);
 //        Log.d(TAG, "Execute time: " + methodeDuration);
-
         return view;
     }
 
-
     @Override
     public void onItemClick(Sures surah) {
-
         Fragment fragment = SurahFragment.newInstance(surah);
         FragmentTransaction fragmentTransaction = requireActivity().getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.nav_host_fragment,fragment);
