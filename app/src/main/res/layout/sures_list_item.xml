@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,21 +18,20 @@
         android:paddingLeft="28dp">
 
         <TextView
-            android:id="@+id/surahsNumberView"
+            android:id="@+id/number_surah_item_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_black"
             android:letterSpacing="0.05"
-            android:text="@string/_114"
+            tools:text="@string/_114"
             android:textColor="@color/mainBlack"
             android:textSize="12sp"
-
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/surahsNameView"
+            android:id="@+id/name_surah_item_text"
             android:layout_width="wrap_content"
             android:maxWidth="160dp"
             android:layout_height="wrap_content"
@@ -41,10 +40,9 @@
             android:fontFamily="@font/roboto_light"
             android:gravity="center_vertical"
             android:letterSpacing="0.05"
-            android:text="@string/an_nas"
+            tools:text="@string/an_nas"
             android:ellipsize="end"
             android:maxLines="1"
-
             android:textColor="@color/mainBlack"
             android:textSize="23sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -52,10 +50,9 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/placeCountBlock"
+            android:id="@+id/place_count_surah_item_block"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -64,7 +61,7 @@
             android:layout_marginRight="58dp">
 
             <TextView
-                android:id="@+id/surahPlaceView"
+                android:id="@+id/place_surah_item_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -75,7 +72,7 @@
                 android:textSize="13sp" />
 
             <TextView
-                android:id="@+id/surahAyahsCountView"
+                android:id="@+id/ayahscount_surah_item_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -88,11 +85,10 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <ImageView
-            android:id="@+id/playIconImageView"
+            android:id="@+id/play_surah_item_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_play_audio"
-
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

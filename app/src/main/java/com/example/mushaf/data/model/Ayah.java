@@ -6,7 +6,7 @@ import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "ayahs", indices = {@Index("surahNumber")})
-public class Ayahs {
+public class Ayah {
 
     @PrimaryKey
     private int number;
@@ -14,7 +14,7 @@ public class Ayahs {
     private String ayahText;
     private int numberInSurah;
 
-    public Ayahs(int number, int surahNumber, String ayahText, int numberInSurah) {
+    public Ayah(int number, int surahNumber, String ayahText, int numberInSurah) {
         this.number = number;
         this.surahNumber = surahNumber;
         this.ayahText = ayahText;
@@ -22,7 +22,7 @@ public class Ayahs {
     }
 
     @Ignore
-    public Ayahs(String ayahText, int numberInSurah) {
+    public Ayah(String ayahText, int numberInSurah) {
         this.ayahText = ayahText;
         this.numberInSurah = numberInSurah;
     }

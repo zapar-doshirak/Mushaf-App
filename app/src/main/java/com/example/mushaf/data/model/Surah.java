@@ -3,17 +3,15 @@ package com.example.mushaf.data.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
-import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import com.squareup.moshi.Json;
 
 @Entity(tableName = "sures_meta")
-public class Sures implements Parcelable {
+public class Surah implements Parcelable {
 
     @PrimaryKey
     @ColumnInfo(name = "_id")
@@ -35,10 +33,10 @@ public class Sures implements Parcelable {
     @Json(name = "numberOfAyahs")private int ayahsCount;
 
     @Ignore
-    public Sures() {
+    public Surah() {
     }
 
-    public Sures(int number, String arabicName, String name, String nameTranslate, String place, int ayahsCount) {
+    public Surah(int number, String arabicName, String name, String nameTranslate, String place, int ayahsCount) {
         this.number = number;
         this.arabicName = arabicName;
         this.name = name;
@@ -48,7 +46,7 @@ public class Sures implements Parcelable {
     }
 
     //parcelable implementation
-    protected Sures(Parcel in) {
+    protected Surah(Parcel in) {
         number = in.readInt();
         arabicName = in.readString();
         name = in.readString();
@@ -58,15 +56,15 @@ public class Sures implements Parcelable {
     }
 
     // parcelable implementation
-    public static final Creator<Sures> CREATOR = new Creator<Sures>() {
+    public static final Creator<Surah> CREATOR = new Creator<Surah>() {
         @Override
-        public Sures createFromParcel(Parcel in) {
-            return new Sures(in);
+        public Surah createFromParcel(Parcel in) {
+            return new Surah(in);
         }
 
         @Override
-        public Sures[] newArray(int size) {
-            return new Sures[size];
+        public Surah[] newArray(int size) {
+            return new Surah[size];
         }
     };
 

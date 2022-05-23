@@ -1,6 +1,5 @@
 package com.example.mushaf.view.adapters;
 
-import android.graphics.ImageDecoder;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,10 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mushaf.R;
-import com.example.mushaf.data.model.Ayahs;
-import com.example.mushaf.data.model.Sures;
+import com.example.mushaf.data.model.Ayah;
+import com.example.mushaf.data.model.Surah;
 import com.example.mushaf.data.net.response.ApiResponse;
-import com.example.mushaf.data.net.response.SurahResponse;
 import com.example.mushaf.data.net.response.Translation;
 
 import java.util.ArrayList;
@@ -23,9 +21,9 @@ import java.util.List;
 public class AyahsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
     private static final int TYPE = 1;
-    private List<Ayahs> ayahsList = new ArrayList<>();
+    private List<Ayah> ayahsList = new ArrayList<>();
     private List<Translation> ayahsTranslationList = new ArrayList<>();
-    private Sures surah = new Sures();
+    private Surah surah = new Surah();
     private final OnItemClickListener clickListener;
 
     public AyahsAdapter(OnItemClickListener clickListener) {
@@ -33,40 +31,38 @@ public class AyahsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     }
 
     //устанавливает список аятов
-    public void setAyahs(List<Ayahs> ayahsList, Sures surah){
+    public void setAyahs(List<Ayah> ayahsList, Surah surah){
         this.ayahsList = ayahsList;
         this.surah = surah;
-        Log.d("SurahFragment", ayahsList.toString());
         //todo: notifyDataSetChanged() заменить на более хорошее решение
         notifyDataSetChanged();
     }
 
     //    устанавливает список переводов аятов
-    public void setAyahsTranslation(ApiResponse ayahsTranslation, Sures surah){
+    public void setAyahsTranslation(ApiResponse ayahsTranslation, Surah surah){
         this.ayahsTranslationList = ayahsTranslation.getSurahResponse().getTranslationList();
         this.surah = surah;
-        Log.d("SurahFragment", "Ayah trans list is: " + ayahsTranslationList.toString());
         //todo: notifyDataSetChanged() заменить на более хорошее решение
         notifyDataSetChanged();
     }
 
     //холдер для аятов
-    public static class AyahsHolder extends RecyclerView.ViewHolder {
+    public static class AyahHolder extends RecyclerView.ViewHolder {
 
         private final TextView ayahNumber;
         private final TextView ayahText;
         private final TextView ayahTranslation;
 
-        Ayahs currentAyah;
+        Ayah currentAyah;
 
-        public AyahsHolder(@NonNull View itemView) {
+        public AyahHolder(@NonNull View itemView) {
             super(itemView);
-            ayahNumber = itemView.findViewById(R.id.ayahsNumberTextView);
-            ayahText = itemView.findViewById(R.id.ayahsTextTextView);
-            ayahTranslation = itemView.findViewById(R.id.ayahsTranslationTextView);
+            ayahNumber = itemView.findViewById(R.id.number_ayah_item_text);
+            ayahText = itemView.findViewById(R.id.text_ayah_item_text);
+            ayahTranslation = itemView.findViewById(R.id.translation_ayah_item_text);
         }
 
-        void bind(Ayahs ayah, Translation translation){
+        void bind(Ayah ayah, Translation translation){
             currentAyah = ayah;
             ayahNumber.setText(""+ayah.getNumberInSurah());
             ayahText.setText(ayah.getAyahText());
@@ -81,7 +77,7 @@ public class AyahsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
         private final TextView surahName;
         private final TextView surahNameTranslationWithAyahsCount;
 
-        Sures currentSurah;
+        Surah currentSurah;
 
         public HeaderHolder(@NonNull View itemView) {
             super(itemView);
@@ -90,7 +86,7 @@ public class AyahsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
             this.surahNameTranslationWithAyahsCount = itemView.findViewById(R.id.surahsNameTranslationWithVersesCount);
         }
 
-        void bind(Sures surah){
+        void bind(Surah surah){
             currentSurah = surah;
             surahNumber.setText(String.valueOf(surah.getNumber()));
             surahName.setText(surah.getName());
@@ -113,7 +109,7 @@ public class AyahsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
             case 1:
                 layoutView = LayoutInflater.from(parent.getContext()).inflate(
                         R.layout.ayah_list_item, parent, false);
-                holder = new AyahsHolder(layoutView);
+                holder = new AyahHolder(layoutView);
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + viewType);
@@ -129,9 +125,8 @@ public class AyahsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
                 headerHolder.bind(surah);
                 break;
             case 1:
-                AyahsHolder ayahsHolder = (AyahsHolder) holder;
-                ayahsHolder.bind(ayahsList.get(position-1), ayahsTranslationList.get(position-1));
-                Log.d("SurahFragment", "translation: " + ayahsTranslationList);
+                AyahHolder ayahHolder = (AyahHolder) holder;
+                ayahHolder.bind(ayahsList.get(position-1), ayahsTranslationList.get(position-1));
                 break;
         }
     }
@@ -152,6 +147,6 @@ public class AyahsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
     //интерфейс для onItemClickListener
     public interface OnItemClickListener {
-        void onItemClick(Ayahs ayah);
+        void onItemClick(Ayah ayah);
         }
     }

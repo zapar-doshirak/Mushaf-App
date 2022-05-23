@@ -9,68 +9,68 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mushaf.R;
-import com.example.mushaf.data.model.Sures;
+import com.example.mushaf.data.model.Surah;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SuresAdapter extends RecyclerView.Adapter<SuresAdapter.SuresHolder>{
+public class SurahsAdapter extends RecyclerView.Adapter<SurahsAdapter.SurahHolder>{
 
     private static final int TYPE = 1;
-    private List<Sures> suresList = new ArrayList<>();
+    private List<Surah> surahList = new ArrayList<>();
+
     //устанавливает список сур
-    public void setSures(List<Sures> suresList){
-        this.suresList = suresList;
+    public void setSurahs(List<Surah> surahList){
+        this.surahList = surahList;
         //todo: notifyDataSetChanged() заменить на более хорошее решение
         notifyDataSetChanged();
     }
 
     private final OnItemClickListener clickListener;
-    public SuresAdapter(OnItemClickListener clickListener) {
+    public SurahsAdapter(OnItemClickListener clickListener) {
         this.clickListener = clickListener;
     }
 
     @NonNull
     @Override
-    public SuresAdapter.SuresHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public SurahHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         switch (viewType){
             case TYPE:
             default:
-                //наполняет RecyclerList разметкой list_item
                 View layoutView = LayoutInflater.from(parent.getContext()).inflate(
                         R.layout.sures_list_item, parent, false);
-                return new SuresHolder(layoutView);
+                return new SurahHolder(layoutView);
         }
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SuresHolder holder, int position) {
-        holder.bind(suresList.get(position), getItemViewType(position));
+    public void onBindViewHolder(@NonNull SurahHolder holder, int position) {
+        holder.bind(surahList.get(position), getItemViewType(position));
     }
 
     @Override
     public int getItemCount() {
-        return suresList.size();
+        return surahList.size();
     }
 
-    class SuresHolder extends RecyclerView.ViewHolder {
+    class SurahHolder extends RecyclerView.ViewHolder {
 
         private final TextView number;
         private final TextView name;
         private final TextView place;
         private final TextView ayahsCount;
 
-        private Sures currentSurah;
+        private Surah currentSurah;
 
-        public SuresHolder(@NonNull View itemView) {
+        public SurahHolder(@NonNull View itemView) {
             super(itemView);
-            number = itemView.findViewById(R.id.surahsNumberView);
-            name = itemView.findViewById(R.id.surahsNameView);
-            place = itemView.findViewById(R.id.surahPlaceView);
-            ayahsCount = itemView.findViewById(R.id.surahAyahsCountView);
+            number = itemView.findViewById(R.id.number_surah_item_text);
+            name = itemView.findViewById(R.id.name_surah_item_text);
+            place = itemView.findViewById(R.id.place_surah_item_text);
+            ayahsCount = itemView.findViewById(R.id.ayahscount_surah_item_text);
         }
 
-        void bind(Sures surah, int viewType){
+        void bind(Surah surah, int viewType){
             currentSurah = surah;
             switch (viewType){
                 case TYPE:
@@ -92,6 +92,6 @@ public class SuresAdapter extends RecyclerView.Adapter<SuresAdapter.SuresHolder>
 
     //интерфейс для onItemClickListener
     public interface OnItemClickListener {
-        void onItemClick(Sures surah);
+        void onItemClick(Surah surah);
         }
     }

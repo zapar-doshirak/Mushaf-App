@@ -7,10 +7,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.mushaf.data.model.Ayahs;
+import com.example.mushaf.data.model.Ayah;
 import com.example.mushaf.data.net.response.ApiResponse;
-import com.example.mushaf.data.net.response.SurahResponse;
-import com.example.mushaf.data.net.response.Translation;
 import com.example.mushaf.data.repository.SurahsRepository;
 
 import java.util.List;
@@ -18,7 +16,7 @@ import java.util.List;
 public class SurahViewModel extends AndroidViewModel {
 
     private SurahsRepository repository;
-    private LiveData<List<Ayahs>> surahAyahs;
+    private LiveData<List<Ayah>> surahAyahs;
     private LiveData<ApiResponse> ayahsTranslation;
 
     /**
@@ -37,7 +35,7 @@ public class SurahViewModel extends AndroidViewModel {
 //
 //    }
 
-    public LiveData<List<Ayahs>> getSurahAyahs(int surahNumber) {
+    public LiveData<List<Ayah>> getSurahAyahs(int surahNumber) {
         surahAyahs = repository.getSurahAyahs(surahNumber);
         return surahAyahs;
     }

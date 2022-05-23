@@ -5,10 +5,8 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
-import com.example.mushaf.data.model.Sures;
+import com.example.mushaf.data.model.Surah;
 import com.example.mushaf.data.repository.SurahsRepository;
 
 import java.util.List;
@@ -16,7 +14,7 @@ import java.util.List;
 public class HomeViewModel extends AndroidViewModel {
 
     private final SurahsRepository repository;
-    private final LiveData<List<Sures>> allSures;
+    private final LiveData<List<Surah>> allSures;
 
     /**
      * We use the application as context in the constructor
@@ -26,10 +24,10 @@ public class HomeViewModel extends AndroidViewModel {
     public HomeViewModel(@NonNull Application application) {
         super(application);
         repository = new SurahsRepository(application);
-        allSures = repository.getAllSures();
+        allSures = repository.getAllSurahs();
     }
 
-    public LiveData<List<Sures>> getAllSures() {
+    public LiveData<List<Surah>> getAllSures() {
         return allSures;
     }
 }

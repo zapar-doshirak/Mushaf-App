@@ -6,10 +6,10 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.example.mushaf.data.model.Ayahs;
-import com.example.mushaf.data.model.Sures;
+import com.example.mushaf.data.model.Ayah;
+import com.example.mushaf.data.model.Surah;
 
-@Database(entities = {Sures.class, Ayahs.class}, version = 1, exportSchema = false)
+@Database(entities = {Surah.class, Ayah.class}, version = 1, exportSchema = false)
 public abstract class MyDatabase extends RoomDatabase {
 
     private static final String DB_NAME = "mushaf.db";
@@ -29,7 +29,7 @@ public abstract class MyDatabase extends RoomDatabase {
         if (instance == null) {
             instance = Room.databaseBuilder(context.getApplicationContext(),
                     MyDatabase.class, DB_NAME)
-                    .createFromAsset("database/sures.db")
+                    .createFromAsset("database/mushaf.db")
                     .build();
         }return instance;
     }

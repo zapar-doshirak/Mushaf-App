@@ -5,61 +5,45 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.example.mushaf.R;
-import com.example.mushaf.data.model.Ayahs;
-import com.example.mushaf.data.model.Sures;
-import com.example.mushaf.data.net.response.ApiResponse;
-import com.example.mushaf.data.net.response.SurahResponse;
+import com.example.mushaf.data.model.Ayah;
+import com.example.mushaf.data.model.Surah;
 import com.example.mushaf.view.adapters.AyahsAdapter;
 import com.example.mushaf.viewmodel.SurahViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SurahFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class SurahFragment extends Fragment implements AyahsAdapter.OnItemClickListener {
 
     private static final String TAG = "SurahFragment";
-
     private SurahViewModel surahViewModel;
 
     private RecyclerView ayahsRecyclerView;
-    private RecyclerView.LayoutManager layoutManager;
     private AyahsAdapter adapter;
 
-    private Sures surah;
+    private Surah surah;
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String THIS_SURAH = "this surah";
 
-    public SurahFragment() {
-        // Required empty public constructor
-    }
+    public SurahFragment() {}
 
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
-     *
      * @return A new instance of fragment SurahFragment.
      */
-    public static SurahFragment newInstance(Sures surahNumber) {
+    public static SurahFragment newInstance(Surah surahNumber) {
         SurahFragment fragment = new SurahFragment();
-        Log.d(TAG, "Bundle from HomeFragment is: " + surahNumber);
         Bundle args = new Bundle();
         args.putParcelable(THIS_SURAH, surahNumber);
         fragment.setArguments(args);
@@ -78,40 +62,20 @@ public class SurahFragment extends Fragment implements AyahsAdapter.OnItemClickL
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Наполняет layout этим фрагментом
         View view = inflater.inflate(R.layout.into_fragment_surah, container, false);
 
         // Прячет нижнюю навигацию
         BottomNavigationView navBar = requireActivity().findViewById(R.id.nav_view);
         navBar.setVisibility(View.GONE);
 
-        //find views
-//      CoordinatorLayout coordinatorLayout = view.findViewById(R.id.fragment_surah);
-//        FrameLayout surahBlock = view.findViewById(R.id.surahBlock);
-
-
-//        appBar = view.findViewById(R.id.appBarLayout);
-//        buttonBack = view.findViewById(R.id.buttonBack);
-        //       buttonMore = view.findViewById(R.id.buttonMore);
-        //frtgtfrv         surahInfoBlock = view.findViewById(R.id.surahInfoBlock);
-//        //header
-//        surahsNumberView = view.findViewById(R.id.surahsNumber);
-//        surahsNameView = view.findViewById(R.id.surahsName);
-//        surahsNameTranslationWithAyahsCountView = view.findViewById(R.id.surahsNameTranslationWithAyahsCount);
-
-
         //Смотрит когда toolbar collapsed и убирает/добавляет кнопки
 //        appBar.addOnOffsetChangedListener((appBarLayout, verticalOffset) -> {
 //
 //            if (Math.abs(verticalOffset) == appBarLayout.getTotalScrollRange()) {
-//
 //                // Collapsed
 //                buttonBack.animate().alpha(0.0f).setDuration(50);
 //                buttonMore.animate().alpha(0.0f).setDuration(50);
-//
-//
 //            } else if (verticalOffset == 0) {
-//
 //                // Expanded
 //                buttonBack.animate().alpha(1.0f).setDuration(150);
 //                buttonMore.animate().alpha(1.0f).setDuration(150);
@@ -120,34 +84,23 @@ public class SurahFragment extends Fragment implements AyahsAdapter.OnItemClickL
 //
         // заполняет header
         int surahsNumber = surah.getNumber();
-//        String surahsName = surah.getName();
-//        String surahsNameTranslation = surah.getNameTranslate();
-//        int ayahsCount = surah.getAyahsCount();
-//        String surahsNameTranslationWithAyahsCount = surahsNameTranslation + ", " + ayahsCount + " verses";
-
-//        surahsNumberView.setText(String.valueOf(surahsNumber));
-//        surahsNameView.setText(surahsName);
-//        surahsNameTranslationWithAyahsCountView.setText(surahsNameTranslationWithAyahsCount);
 
         //RecyclerView stuff
-        ayahsRecyclerView = view.findViewById(R.id.ayahsRecyclerView);
+        ayahsRecyclerView = view.findViewById(R.id.ayahs_surah_list);
         ayahsRecyclerView.setHasFixedSize(true);
-
-        layoutManager = new LinearLayoutManager(view.getContext());
-        ayahsRecyclerView.setLayoutManager(layoutManager);
-
         adapter = new AyahsAdapter(this);
 
         //создает ViewModelProvider и ставит наблюдателя на список с аятами
         surahViewModel = new ViewModelProvider(this).get(SurahViewModel.class);
-        surahViewModel.getSurahAyahs(surahsNumber).observe(getViewLifecycleOwner(), new Observer<List<Ayahs>>() {
+        surahViewModel.getSurahAyahs(surahsNumber).observe(getViewLifecycleOwner(), new Observer<List<Ayah>>() {
             @Override
-            public void onChanged(List<Ayahs> ayahs) {
+            public void onChanged(List<Ayah> ayahs) {
                 Log.d(TAG, "Ayahs of this surah: " + ayahs);
                 adapter.setAyahs(ayahs, surah);
             }
         });
 
+        //todo: сделать, чтобы перевод загружался в бд, а по Retrofit только изменение версии в бд
         surahViewModel.getAyahsTranslation(surahsNumber, "ru.kuliev").observe(getViewLifecycleOwner(), response -> {
                 if(response!=null){
                     Log.d(TAG, "Translation of this surah: " + response);
@@ -157,20 +110,11 @@ public class SurahFragment extends Fragment implements AyahsAdapter.OnItemClickL
                     Toast.makeText(getActivity(), "Please check your internet connection or try again later", Toast.LENGTH_LONG).show();
                 }
         });
-
-
-
-//        long startTime = System.nanoTime();
-//        ...some process...
-//        long endTime = System.nanoTime();
-//        long methodeDuration = (endTime - startTime);
-//        Log.d(TAG, "Execute time: " + methodeDuration);
-
         return (view);
     }
 
     @Override
-    public void onItemClick(Ayahs ayah) {
+    public void onItemClick(Ayah ayah) {
         //todo: поставить сюда отображение фрагмента с аятом с подробностями
         Log.d(TAG, "OnAyahClick in SurahFragment: " + ayah);
     }

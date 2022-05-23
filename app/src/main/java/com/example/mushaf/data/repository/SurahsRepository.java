@@ -8,11 +8,10 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.mushaf.data.database.MyDao;
 import com.example.mushaf.data.database.MyDatabase;
-import com.example.mushaf.data.model.Ayahs;
-import com.example.mushaf.data.model.Sures;
+import com.example.mushaf.data.model.Ayah;
+import com.example.mushaf.data.model.Surah;
 import com.example.mushaf.data.net.APIInterface;
 import com.example.mushaf.data.net.response.ApiResponse;
-import com.example.mushaf.data.net.response.SurahResponse;
 import com.example.mushaf.data.net.retrofit.RetrofitClient;
 
 import java.util.List;
@@ -25,23 +24,23 @@ public class SurahsRepository {
 
     private static final String TAG = "SurahsRepository";
     private final MyDao myDao;
-    private final LiveData<List<Sures>> allSures;
-    private LiveData<List<Ayahs>> surahAyahs;
+    private final LiveData<List<Surah>> allSurahs;
+    private LiveData<List<Ayah>> surahAyahs;
     private final APIInterface apiInterface;
 
     public SurahsRepository(Application application){
         MyDatabase myDatabase = MyDatabase.getInstance(application);
         myDao = myDatabase.myDao();
-        allSures = myDao.getAllSures();
+        allSurahs = myDao.getAllSurahs();
 
         apiInterface = RetrofitClient.getClient().create(APIInterface.class);
     }
 
-    public LiveData<List<Sures>> getAllSures() {
-        return allSures;
+    public LiveData<List<Surah>> getAllSurahs() {
+        return allSurahs;
     }
 
-    public LiveData<List<Ayahs>> getSurahAyahs(int surahNumber) {
+    public LiveData<List<Ayah>> getSurahAyahs(int surahNumber) {
         surahAyahs = myDao.getSurahAyahs(surahNumber);
         return surahAyahs;
     }
@@ -66,5 +65,4 @@ public class SurahsRepository {
                 });
         return data;
     }
-
 }
